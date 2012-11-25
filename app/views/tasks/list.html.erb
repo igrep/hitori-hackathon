@@ -2,12 +2,18 @@
 <table id="task_list">
   <thead>
     <tr>
-      <th class="task_header"></th>
+      <% @headers.each_value do|h| %>
+        <th class="task_header"> <%= h %> </th>
+      <% end %>
     </tr>
   </thead>
   <tbody>
-    <tr class="task_line">
-      <td class="task_property"></td>
-    </tr>
+    <% @tasks.each do|t| %>
+      <tr class="task_line">
+        <% @headers.each_key do|h| %>
+          <td class="task_property"> <%= t[h] %> </td>
+        <% end %>
+      </tr>
+    <% end %>
   </tbody>
 </table>
