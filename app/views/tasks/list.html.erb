@@ -1,4 +1,11 @@
 <h1>Tasks</h1>
+<%= form_for @new_task do|f| %>
+<ul>
+  <li><%= f.label @headers[:name]%><%= f.text_field :name %></li>
+  <li><%= f.label @headers[:due_time] %><%= f.datetime_select :due_time %></li>
+  <li><%= f.submit %></li>
+</ul>
+<% end %>
 <table id="task_list">
   <thead>
     <tr>
