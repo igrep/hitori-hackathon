@@ -1,4 +1,8 @@
 Todo::Application.routes.draw do
+  get "tasks/list"
+
+  get "tasks/timer"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
