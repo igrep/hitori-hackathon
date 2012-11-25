@@ -1,9 +1,5 @@
 class TasksController < ApplicationController
 
-  STATUS_NOT_YET = 'not_yet'.freeze
-  STATUS_DOING = 'doing'.freeze
-  STATUS_DONE = 'done'.freeze
-
   def list
     @new_task = Task.new
     @headers = Task::PROPERTY_NAMES
@@ -12,7 +8,7 @@ class TasksController < ApplicationController
 
   def add
     task = Task.new(params[:task])
-    task.status = STATUS_NOT_YET
+    task.status = Task::DEFAULT_STATUS
     task.save
     redirect_to( action: 'list' )
   end
