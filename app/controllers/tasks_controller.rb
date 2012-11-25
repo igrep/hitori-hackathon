@@ -5,6 +5,11 @@ class TasksController < ApplicationController
     @tasks = Task.all
   end
 
+  def add
+    Task.create!(params[:task])
+    redirect_to( action: 'list' )
+  end
+
   def timer
   end
 end

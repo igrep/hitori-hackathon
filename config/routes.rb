@@ -4,6 +4,7 @@ Todo::Application.routes.draw do
     root( action: 'list' )
     get 'list'
     get 'timer'
+    post '/', :action => 'add'
   end
 
   # The priority is based upon order of creation:
