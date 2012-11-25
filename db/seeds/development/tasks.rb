@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+
+puts "creating seed records"
 Task.create(
   name: "フレッシュプリキュアを見る",
   due_time: Time.now + 1.week,
@@ -7,6 +10,11 @@ Task.create(
   name: "ひだまりスケッチを見る",
   due_time: Time.now + 3.days,
   status: "not yet"
+)
+Task.create(
+  name: "<script> alert('XSS脆弱性を試す') </script>",
+  due_time: Time.now + 1.hour,
+  status: "doing"
 )
 Task.create(
   name: "Hakellの問題を作る",

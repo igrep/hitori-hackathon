@@ -8,10 +8,11 @@
 
 # http://www.oiax.jp/rails/rails3/database_table_and_model.html
 # からパクったかのように見えるコード
+# どうやら環境ごとにseedする内容を変える作戦らしい
 
 table_names = %w{ tasks }
 
 table_names.each do |table_name|
-  tasks_path = "#{Rails.root}/db/seeds/#{Rails.env}/#{table_name}"
-  require tasks_path if File.exist? tasks_path
+  tasks_path = "#{Rails.root}/db/seeds/#{Rails.env}/#{table_name}.rb"
+  require tasks_path
 end
