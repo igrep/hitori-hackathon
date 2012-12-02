@@ -7,9 +7,7 @@ class TasksController < ApplicationController
   end
 
   def add
-    task = Task.new(params[:task])
-    task.status = STATUS_NOT_YET
-    task.save
+    Task.add(params[:task])
     redirect_to( action: 'list' )
   end
 
