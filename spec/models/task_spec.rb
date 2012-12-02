@@ -4,6 +4,7 @@ describe Task do
   it 'can add a non-blank task' do
     added_task = Task.add( name: 'Test Task', due_time: Time.now )
     added_task.should be_valid
+    Task.last.should == added_task
   end
 
   it 'can not add blank task' do
