@@ -1,5 +1,6 @@
 class Task < ActiveRecord::Base
   attr_accessible :due_time, :name, :status
+  validates :name, presence: true
 
   STATUS_NOT_YET = 'not yet'.freeze
   STATUS_DOING = 'doing'.freeze
