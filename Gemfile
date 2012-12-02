@@ -8,9 +8,8 @@ gem 'rails', '3.2.9'
 gem 'sqlite3'
 
 group :development do
-end
-
-group :development do
+  gem 'pry-rails'
+  gem 'interactive_editor'
   gem 'rspec-rails'
 end
 
