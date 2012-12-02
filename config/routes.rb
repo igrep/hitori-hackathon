@@ -1,5 +1,5 @@
 Todo::Application.routes.draw do
-  #root( controller: 'tasks', action: 'list' )
+  root( controller: 'tasks', action: 'list' )
   resource :tasks do
     get 'list'
     get 'timer'
