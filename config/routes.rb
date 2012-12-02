@@ -1,11 +1,11 @@
 Todo::Application.routes.draw do
-  root( controller: 'tasks', action: 'list' )
-  resource :tasks do
-    get 'list'
-    get 'timer'
-    post( '/', action: 'add' )
-    get( '/', action: 'list' )
-  end
+  #root( controller: 'tasks', action: 'list' )
+  #resource :tasks do
+    #get 'list'
+    #get 'timer'
+    #post( '/', action: 'add' )
+    #get( '/', action: 'list' )
+  #end
 
 
   # The priority is based upon order of creation:
