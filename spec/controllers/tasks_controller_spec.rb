@@ -1,8 +1,10 @@
 require 'spec_helper'
 
 describe TasksController do
+  # これは消してhtmlのテストはviewに置くべき
   render_views
 
+  # postするテストも追加したいなあ
   describe "GET 'list'" do
     before :each do
       get 'list'

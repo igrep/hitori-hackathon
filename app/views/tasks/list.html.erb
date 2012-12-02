@@ -1,6 +1,7 @@
 <h1>Tasks</h1>
 <%= form_for @new_task do|f| %>
 <ul>
+  <!-- 多分にlabelメソッドの使い方を間違っている。標準でないラベルを表示するには本来どうすればよいものか -->
   <li><%= f.label @headers[:name]%><%= f.text_field :name %></li>
   <li><%= f.label @headers[:due_time] %><%= f.datetime_select :due_time %></li>
   <li><%= f.submit %></li>

@@ -12,6 +12,7 @@ class Task < ActiveRecord::Base
     status: 'Status'
   }
 
+  # 名前短すぎ
   def self.add params
     self.create params.merge( status: STATUS_NOT_YET )
   end
