@@ -3,13 +3,6 @@ require 'spec_helper'
 describe TasksController do
   render_views
 
-  describe "GET '/'" do
-    it "returns http success" do
-      get '/'
-      response.should be_success
-    end
-  end
-
   describe "GET 'list'" do
     before :each do
       get 'list'
