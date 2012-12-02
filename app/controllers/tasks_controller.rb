@@ -1,9 +1,5 @@
 class TasksController < ApplicationController
 
-  STATUS_NOT_YET = 'not yet'.freeze
-  STATUS_DOING = 'doing'.freeze
-  STATUS_DONE = 'done'.freeze
-
   def list
     @new_task = Task.new
     @headers = Task::PROPERTY_NAMES
