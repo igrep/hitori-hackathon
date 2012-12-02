@@ -26,7 +26,7 @@ describe TasksController do
     end
 
     it 'has a form to post a new task' do
-      response.should have_selector('form')
+      response.should have_selector('form', method: 'post', action: '/tasks')
       # 現状最低限テストしたいのはタスクの名前と期限だけど期限はどうテストしようか
       response.should have_selector('input', name: 'task[name]')
     end
