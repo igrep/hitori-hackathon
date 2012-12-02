@@ -11,7 +11,7 @@ describe TasksController do
   end
 
   describe "GET 'list'" do
-    before :all do
+    before :each do
       get 'list'
     end
     it "returns http success" do
