@@ -2,9 +2,10 @@ require 'spec_helper'
 
 describe Task, 'when adding a task' do
 
-  subject { Task.add( name: 'Test Task', due_time: Time.now ) }
+  subject { Task.add_unfinished( name: 'Test Task', due_time: Time.now ) }
 
   # Task.countの増減をテストするにはこの場合どうすればよいものか。
+  # とりあえずcontrollerのテストでやってるからいいか。
   it 'adds the new task to the last' do
     should be_valid
     should == Task.last

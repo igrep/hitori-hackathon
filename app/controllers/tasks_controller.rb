@@ -7,7 +7,7 @@ class TasksController < ApplicationController
   end
 
   def add
-    Task.add(params[:task])
+    Task.add_unfinished(params[:task])
     redirect_to( action: 'list' )
   end
 
