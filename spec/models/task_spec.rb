@@ -16,7 +16,7 @@ describe Task, 'when adding a task' do
     should_not be_valid
   end
 
-  it "adds a task whose status is Task::STATUS_NOT_YET" do
-    subject.status.should == Task::STATUS_NOT_YET
+  it "adds a task which is not done" do
+    subject.status.should_not be_done
   end
 end
