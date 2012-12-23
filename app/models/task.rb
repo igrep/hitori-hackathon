@@ -15,4 +15,12 @@ class Task < ActiveRecord::Base
   def self.add_unfinished params
     self.create params.merge( done: false )
   end
+
+  def self.change_done new_done, *ids
+    as_i = if new_done then 1 else 0 end
+    Task.update_all(
+      ['done = ?', as_i],
+      id: ids
+    )
+  end
 end
