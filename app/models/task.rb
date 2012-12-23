@@ -1,18 +1,14 @@
 class Task < ActiveRecord::Base
-  attr_accessible :due_time, :name, :status
+  attr_accessible :due_time, :name, :done
   validates :name, presence: true
-
-  STATUS_NOT_YET = 'not yet'.freeze
-  STATUS_DOING = 'doing'.freeze
-  STATUS_DONE = 'done'.freeze
 
   PROPERTY_NAMES = {
     name: 'Task',
     due_time: 'Deadline',
-    status: 'Status'
+    done: 'Status'
   }
 
   def self.add_unfinished params
-    self.create params.merge( status: STATUS_NOT_YET )
+    self.create params.merge( done: false )
   end
 end
