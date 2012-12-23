@@ -11,7 +11,7 @@ describe "Tasks" do
       # 他に既にタスクがある場合を想定すると適切じゃない。。。
       response.should have_selector('.task_property', content: new_task )
       response.should have_selector(
-        '.task_property', content: Task::STATUS_NOT_YET
+        '.task_property', content: new_task
       )
     end
   end

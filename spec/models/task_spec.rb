@@ -17,6 +17,6 @@ describe Task, 'when adding a task' do
   end
 
   it "adds a task which is not done" do
-    subject.status.should_not be_done
+    subject.should_not be_done
   end
 end
