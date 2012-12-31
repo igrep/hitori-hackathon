@@ -30,14 +30,32 @@ describe TasksController do
   # 実質Modelのテストになってる... orz
   describe "POST '/tasks/'" do
     context 'in posting valid parameters,' do
-      context 'when FILE_NO_CHANGE does not exist' do
+      context 'when FILE_UPDATE_OK does not exist,' do
 
         before :all do
-          begin
-            File.delete ApplicationController::FILE_NO_CHANGE
-          rescue Errno::ENOENT
-            # do nothing
-          end
+          FileUtils.rm ApplicationController::FILE_UPDATE_OK, force: true
+        end
+
+        after :all do
+          FileUtils.touch ApplicationController::FILE_UPDATE_OK
+        end
+
+        it 'doesn\'t increase the number of tasks' do
+          expect {
+            post :add, task: { name: 'test', due_time: Time.now }
+          }.not_to change(Task, :count).by(1)
+        end
+
+      end
+
+      context 'when FILE_UPDATE_OK exists,' do
+
+        before :all do
+          FileUtils.touch ApplicationController::FILE_UPDATE_OK
+        end
+
+        after :all do
+          FileUtils.rm ApplicationController::FILE_UPDATE_OK, force: true
         end
 
         it 'increases the number of tasks' do
@@ -50,21 +68,6 @@ describe TasksController do
           expect {
             post :add, task: { name: 'test' }
           }.to change(Task, :count).by(1)
-        end
-      end
-
-      context 'when FILE_NO_CHANGE exists' do
-
-        before :all do
-          File.open( ApplicationController::FILE_NO_CHANGE, 'w' )do
-            # just create
-          end
-        end
-
-        it 'doesn\'t increase the number of tasks' do
-          expect {
-            post :add, task: { name: 'test', due_time: Time.now }
-          }.not_to change(Task, :count).by(1)
         end
 
       end

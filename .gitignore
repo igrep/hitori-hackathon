@@ -14,3 +14,6 @@
 /log/*.log
 /*.log
 /tmp
+
+# mark to allow to update database
+/hitori-hackathon/update-ok
