@@ -1,7 +1,12 @@
 require 'spec_helper'
 
 describe "Tasks" do
+  before :all do
+    FileUtils.touch ApplicationController::FILE_UPDATE_OK
+  end
+
   describe "GET /" do
+
     it "has form to add a task" do
       new_task = "test task #{rand}"
       visit root_path
@@ -12,5 +17,9 @@ describe "Tasks" do
         '.task_property', content: new_task
       )
     end
+  end
+
+  after :all do
+    FileUtils.rm ApplicationController::FILE_UPDATE_OK, force: true
   end
 end
