@@ -1,5 +1,6 @@
 Todo::Application.routes.draw do
   root( controller: 'tasks', action: 'index' )
+  get '/unavailable_so_far', controller: 'application', action: 'unavailable_so_far'
   resource :tasks do
     get 'timer'
     post( '/', action: 'add' )

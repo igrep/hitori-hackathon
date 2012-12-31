@@ -6,7 +6,7 @@ class TasksController < ApplicationController
     @tasks = Task.all
   end
 
-  skip_before_filter :avoid_change, only: [:index]
+  skip_before_filter :avoid_change, only: [:index, :timer]
 
   def add
     Task.add_unfinished params[:task]

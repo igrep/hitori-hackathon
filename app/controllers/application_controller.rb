@@ -6,12 +6,13 @@ class ApplicationController < ActionController::Base
   FILE_UPDATE_OK = File.join( Rails.root, 'hitori-hackathon/update-ok' )
   protect_from_forgery
 
-  before_filter :avoid_change
+  before_filter :avoid_change, except: :unavailable_so_far
   private
   def avoid_change
     logger.info "#{__method__}: checking if #{FILE_UPDATE_OK} exists"
     unless File.exist? FILE_UPDATE_OK
-      render text: 'Sorry, the operation can\'t be executed so far!'
+      flash[:back_path] = request.referer
+      redirect_to '/unavailable_so_far'
     end
   end
 end
