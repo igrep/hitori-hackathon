@@ -4,9 +4,9 @@ describe TasksController do
   # これは消してhtmlのテストはviewに置くべき
   render_views
 
-  describe "GET 'list'" do
+  describe "GET 'index'" do
     before :each do
-      get :list
+      get :index
     end
     it "returns http success" do
       response.should be_success
@@ -34,7 +34,7 @@ describe TasksController do
 
         before :all do
           begin
-            File.delete FILE_NO_CHANGE
+            File.delete ApplicationController::FILE_NO_CHANGE
           rescue Errno::ENOENT
             # do nothing
           end
@@ -56,7 +56,7 @@ describe TasksController do
       context 'when FILE_NO_CHANGE exists' do
 
         before :all do
-          File.open( FILE_NO_CHANGE, 'w' )do
+          File.open( ApplicationController::FILE_NO_CHANGE, 'w' )do
             # just create
           end
         end

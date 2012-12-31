@@ -1,10 +1,9 @@
 Todo::Application.routes.draw do
-  root( controller: 'tasks', action: 'list' )
+  root( controller: 'tasks', action: 'index' )
   resource :tasks do
-    get 'list'
     get 'timer'
     post( '/', action: 'add' )
-    get( '/', action: 'list' )
+    get( '/', action: 'index' )
   end
 
 
