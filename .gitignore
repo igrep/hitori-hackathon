@@ -16,4 +16,4 @@
 /tmp
 
 # mark to allow to update database
-/hitori-hackathon/update-ok
+/config/update-ok

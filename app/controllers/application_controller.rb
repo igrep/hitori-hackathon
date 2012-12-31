@@ -3,7 +3,7 @@
 class ApplicationController < ActionController::Base
   # 本来ならsettingsみたいなgemを使ってやるべきなんだろうけどあえて。
   # 簡単に切り替えられるのでテストしやすいかと思って。
-  FILE_UPDATE_OK = File.join( Rails.root, 'hitori-hackathon/update-ok' )
+  FILE_UPDATE_OK = File.join( Rails.root, 'config/update-ok' )
   protect_from_forgery
 
   before_filter :avoid_change, except: :unavailable_so_far
