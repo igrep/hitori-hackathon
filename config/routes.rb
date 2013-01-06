@@ -3,11 +3,8 @@ Todo::Application.routes.draw do
   get '/unavailable_so_far', controller: 'application', action: 'unavailable_so_far'
 
   resources :tasks, only: [ :index, :show ]
-  resource :tasks do
-    get 'timer'
-    post( '/', action: 'add' )
-    get( '/', action: 'index' )
-  end
+  get 'tasks/timer', controller: 'tasks', action: 'timer'
+  post 'tasks/', controller: 'tasks', action: 'add'
 
 
   # The priority is based upon order of creation:
