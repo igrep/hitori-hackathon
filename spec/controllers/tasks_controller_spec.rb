@@ -20,10 +20,12 @@ describe TasksController do
     end
 
     it 'has a form to post a new task' do
-      response.should have_selector('form', method: 'post', action: '/tasks')
-      # 現状最低限テストしたいのはタスクの名前
-      # 期限はいろいろな入力フォームがありえるので保留
-      response.should have_selector('input', name: 'task[name]')
+      response.should have_selector('form', method: 'post', action: '/tasks') do|f|
+        # 現状最低限テストしたいのはタスクの名前
+        # 期限はいろいろな入力フォームがありえるので保留
+        f.should have_selector('input', name: 'task[name]')
+        f.should have_selector('textarea', name: 'task[description]' )
+      end
     end
   end
 
