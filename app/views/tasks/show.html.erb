@@ -1,0 +1,8 @@
+<h1><%= @task.name %></h1>
+<!-- TODO: 辞書使おう！ -->
+<p>Deadline:
+<% due_time = @task.due_time %>
+<%= if due_time.present? then due_time else "None" end %>
+</p>
+<p><%= @task.description %></p>
+<p><%= link_to 'Back', :back %></p>

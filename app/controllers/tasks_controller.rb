@@ -6,11 +6,18 @@ class TasksController < ApplicationController
     @tasks = Task.all
   end
 
-  skip_before_filter :avoid_change, only: [:index, :timer]
+  skip_before_filter(
+    :avoid_change,
+    only: [:index, :timer, :show]
+  )
 
   def add
     Task.add_unfinished params[:task]
     redirect_to action: 'index'
+  end
+
+  def show
+    @task = Task.find_by_id( params[:id].to_s )
   end
 
   def timer
