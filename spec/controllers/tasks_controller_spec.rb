@@ -14,9 +14,14 @@ describe TasksController do
 
     it 'has task list' do
       #そもそもテーブルでないといけない理由はないけど...
-      response.should have_selector('table#task_list')
-      # タスクが0この場合も考えてとりあえずthのみテスト
-      response.should have_selector('th.task_header')
+      response.should have_selector('table#task_list') do|table|
+        table.should have_selector('th.task_header')
+        table.should have_selector('a') do|anchors|
+          a = anchors.first
+          a['href'].should =~ %r'tasks/.+'
+          a['id'].should =~ /^link_to_task_/
+        end
+      end
     end
 
     it 'has a form to post a new task' do

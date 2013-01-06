@@ -14,6 +14,7 @@
       <% @headers.each_value do|h| %>
         <th class="task_header"> <%= h %></th>
       <% end %>
+      <th class="task_header">Details</th>
     </tr>
   </thead>
   <tbody>
@@ -22,6 +23,9 @@
         <% @headers.each_key do|h| %>
           <td class="task_property"> <%= t[h] %></td>
         <% end %>
+        <td class="task_property"><%=
+        link_to "...", t, id: "link_to_task_#{t.id}", target: '_blank'
+        %></td>
       </tr>
     <% end %>
   </tbody>
