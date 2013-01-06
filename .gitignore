@@ -20,3 +20,6 @@
 
 # to hide username and password for databases
 /config/database.yml
+
+# precompiled assets
+/public/assets
