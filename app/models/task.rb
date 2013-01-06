@@ -8,9 +8,9 @@ class Task < ActiveRecord::Base
   validates :name, presence: true
 
   PROPERTY_NAMES = {
+    done: 'Done?',
     name: 'Task',
     due_time: 'Deadline',
-    done: 'Done?'
   }
 
   def done?
