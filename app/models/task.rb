@@ -1,5 +1,10 @@
 class Task < ActiveRecord::Base
-  attr_accessible :due_time, :name, :done
+  attr_accessible(
+    :due_time,
+    :name,
+    :done,
+    :description
+  )
   validates :name, presence: true
 
   PROPERTY_NAMES = {
