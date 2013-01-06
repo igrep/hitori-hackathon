@@ -14,3 +14,9 @@
 /log/*.log
 /*.log
 /tmp
+
+# mark to allow to update database
+/config/update-ok
+
+# to hide username and password for databases
+/config/database.yml
