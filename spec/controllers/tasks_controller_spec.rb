@@ -12,14 +12,19 @@ describe TasksController do
       response.should be_success
     end
 
-    it 'has task list' do
-      #そもそもテーブルでないといけない理由はないけど...
-      response.should have_selector('table#task_list') do|table|
-        table.should have_selector('th.task_header')
-        table.should have_selector('a') do|anchors|
-          a = anchors.first
-          a['href'].should =~ %r'tasks/.+'
-          a['id'].should =~ /^link_to_task_/
+    context 'after adding a task' do
+      before :all do
+        Task.add_unfinished name: "test", due_time: Time.now
+      end
+      it 'has task list' do
+        #そもそもテーブルでないといけない理由はないけど...
+        response.should have_selector('table#task_list') do|table|
+          table.should have_selector('th.task_header')
+          table.should have_selector('a') do|anchors|
+            a = anchors.first
+            a['href'].should =~ %r'tasks/.+'
+            a['id'].should =~ /^link_to_task_/
+          end
         end
       end
     end
