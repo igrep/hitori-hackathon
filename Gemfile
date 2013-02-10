@@ -11,6 +11,7 @@ group :development do
   gem 'pry-rails'
   gem 'interactive_editor'
   gem 'rspec-rails'
+  gem 'zeus'
 end
 
 group :test do
